@@ -1,24 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--MainPage-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="MainPage" id="BYZ-38-t0r" customClass="ViewController" customModule="InfinityTap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Infinity Tap" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGJ-ir-Umb">
+                                <rect key="frame" x="16" y="101" width="343" height="57"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="47"/>
+                                <color key="textColor" red="0.58743429183959961" green="0.61137109994888306" blue="0.64049041271209717" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsp-Lm-J5e">
+                                <rect key="frame" x="53" y="318.5" width="269" height="30"/>
+                                <color key="backgroundColor" red="0.2769674063" green="0.3208824992" blue="0.36670404670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="269" id="6BT-Qu-l5B"/>
+                                </constraints>
+                                <state key="normal" title="Scoreboard">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fm-p8-w4e">
+                                <rect key="frame" x="53" y="355.5" width="269" height="30"/>
+                                <color key="backgroundColor" red="0.81601446866989136" green="0.30927467346191406" blue="0.31834107637405396" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="269" id="uu0-6H-XgA"/>
+                                </constraints>
+                                <state key="normal" title="Continue game">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wG1-g2-DUX">
+                                <rect key="frame" x="172" y="617" width="30" height="30"/>
+                                <state key="normal" title="Exit">
+                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1p-De-Fry">
+                                <rect key="frame" x="53" y="279.5" width="269" height="30"/>
+                                <color key="backgroundColor" red="0.27696740627288818" green="0.32088249921798706" blue="0.36670404672622681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="269" id="CoV-II-owe"/>
+                                </constraints>
+                                <state key="normal" title="Start a game">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="wG1-g2-DUX" secondAttribute="bottom" constant="20" symbolic="YES" id="5dE-FF-6z3"/>
+                            <constraint firstItem="kGJ-ir-Umb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="6cr-kl-GAN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kGJ-ir-Umb" secondAttribute="trailing" constant="16" id="7cY-7D-PNk"/>
+                            <constraint firstItem="qsp-Lm-J5e" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="AGm-F4-2y2"/>
+                            <constraint firstItem="kGJ-ir-Umb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="81" id="LwX-e7-2jm"/>
+                            <constraint firstItem="qsp-Lm-J5e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qae-tG-cu5"/>
+                            <constraint firstItem="qsp-Lm-J5e" firstAttribute="height" secondItem="m1p-De-Fry" secondAttribute="height" id="Z9a-yW-PN6"/>
+                            <constraint firstItem="2fm-p8-w4e" firstAttribute="leading" secondItem="qsp-Lm-J5e" secondAttribute="leading" id="ZFQ-Kw-pSl"/>
+                            <constraint firstItem="qsp-Lm-J5e" firstAttribute="width" secondItem="m1p-De-Fry" secondAttribute="width" id="aUF-pM-8c3"/>
+                            <constraint firstItem="m1p-De-Fry" firstAttribute="leading" secondItem="qsp-Lm-J5e" secondAttribute="leading" id="beE-Gh-5Gl"/>
+                            <constraint firstItem="qsp-Lm-J5e" firstAttribute="top" secondItem="m1p-De-Fry" secondAttribute="bottom" constant="9" id="iKi-Vp-Xkn"/>
+                            <constraint firstItem="2fm-p8-w4e" firstAttribute="centerX" secondItem="wG1-g2-DUX" secondAttribute="centerX" id="q69-Bz-me1"/>
+                            <constraint firstItem="2fm-p8-w4e" firstAttribute="width" secondItem="m1p-De-Fry" secondAttribute="width" id="swI-lf-zxJ"/>
+                            <constraint firstItem="2fm-p8-w4e" firstAttribute="height" secondItem="m1p-De-Fry" secondAttribute="height" id="vUf-wd-0Z3"/>
+                            <constraint firstItem="2fm-p8-w4e" firstAttribute="top" secondItem="qsp-Lm-J5e" secondAttribute="bottom" constant="7" id="xp2-yY-43C"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Led-tt-sPi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-404" y="89.505247376311857"/>
         </scene>
     </scenes>
 </document>
