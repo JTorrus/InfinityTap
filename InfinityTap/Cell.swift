@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 struct Cell {
+    var identifier: String
     var backgroundColor: UIColor
     var isCorrect: Bool
 }

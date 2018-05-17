@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CMu-YQ-25x">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -115,31 +115,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tiempo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5c2-cQ-beu">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tiempo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5c2-cQ-beu">
                                 <rect key="frame" x="16" y="43" width="343" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Puntuación" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogL-mh-xmJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Puntuación" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogL-mh-xmJ">
                                 <rect key="frame" x="16" y="112" width="343" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="27"/>
                                 <color key="textColor" red="0.55700749158859253" green="0.079951934516429901" blue="0.88023525476455688" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xkF-9v-E9u">
                                 <rect key="frame" x="16" y="167" width="343" height="431"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" identifier="game_board">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HFi-Pu-agn" firstAttribute="trailing" secondItem="ogL-mh-xmJ" secondAttribute="trailing" constant="16" id="2c5-yg-520"/>
+                            <constraint firstItem="ogL-mh-xmJ" firstAttribute="leading" secondItem="HFi-Pu-agn" secondAttribute="leading" constant="16" id="I2c-Ye-pgb"/>
+                            <constraint firstItem="HFi-Pu-agn" firstAttribute="trailing" secondItem="5c2-cQ-beu" secondAttribute="trailing" constant="16" id="JTe-dE-EgH"/>
+                            <constraint firstItem="5c2-cQ-beu" firstAttribute="leading" secondItem="HFi-Pu-agn" secondAttribute="leading" constant="16" id="Ng9-M6-grG"/>
+                            <constraint firstItem="5c2-cQ-beu" firstAttribute="top" secondItem="HFi-Pu-agn" secondAttribute="top" constant="23" id="Rmc-mf-vYS"/>
+                            <constraint firstItem="ogL-mh-xmJ" firstAttribute="top" secondItem="5c2-cQ-beu" secondAttribute="bottom" constant="36" id="cqV-lg-2vK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="HFi-Pu-agn"/>
                     </view>
                     <connections>
-                        <outlet property="containerButton" destination="xkF-9v-E9u" id="NKl-0P-tli"/>
+                        <outlet property="gameBoard" destination="xkF-9v-E9u" id="faM-J6-Rnb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F7j-z4-3QJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
