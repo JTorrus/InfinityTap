@@ -14,6 +14,7 @@ class GameViewController: UIViewController {
     var buttonWidth: CGFloat?
     var buttonHeight: CGFloat?
     var currentGame: Game = Game(rows: 3, cols: 3, difficulty: 1.0)
+    var cellViews: [UIView] = [UIView]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,7 @@ class GameViewController: UIViewController {
             newCell.layer.borderWidth = 1.0
             newCell.addGestureRecognizer(tapGestureRecognizer)
             
+            cellViews.append(newCell)
             gameBoard.addSubview(newCell)
         }
         
@@ -53,6 +55,7 @@ class GameViewController: UIViewController {
             newCell.layer.borderWidth = 1.0
             newCell.addGestureRecognizer(tapGestureRecognizer)
             
+            cellViews.append(newCell)
             gameBoard.addSubview(newCell)
         }
         
@@ -66,11 +69,26 @@ class GameViewController: UIViewController {
             newCell.layer.borderWidth = 1.0
             newCell.addGestureRecognizer(tapGestureRecognizer)
             
+            cellViews.append(newCell)
             gameBoard.addSubview(newCell)
         }
     }
     
     @objc func tap(gesture: UITapGestureRecognizer) {
-        // TO DO
+        if let accessibilityIdentifier = gesture.view?.accessibilityIdentifier {
+            let cellHitId = Int(accessibilityIdentifier)
+            
+            if (currentGame.didPlayerHitTheCorrectCell(cellHit: &currentGame.cells[cellHitId!])) {
+                for subview in cellViews {
+                    if (subview.accessibilityIdentifier == accessibilityIdentifier) {
+                        subview.backgroundColor = currentGame.cells[cellHitId!].backgroundColor
+                    }
+                }
+                
+                currentGame.addDifficulty()
+            } else {
+                
+            }
+        }
     }
 }

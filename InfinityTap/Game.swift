@@ -33,11 +33,15 @@ class Game {
         // TODO
     }
     
-    private func addDifficulty() {
+    func addDifficulty() {
         self.difficulty += 1.0
     }
     
-    private func generateCells() -> [Cell] {
+    func changeCells() {
+        self.cells = generateCells()
+    }
+    
+    func generateCells() -> [Cell] {
         let correctCell = randomizeCorrectCellPositionAppearance()
         var cell: Cell
         var cellsToReturn: [Cell] = [Cell]()
@@ -55,13 +59,13 @@ class Game {
         return cellsToReturn
     }
     
-    func didPlayerHitTheCorrectCell(cellHit: inout Cell) -> Int? {
+    func didPlayerHitTheCorrectCell(cellHit: inout Cell) -> Bool {
         if cellHit.isCorrect {
             cellHit.isCorrect = false
             cellHit.backgroundColor = UIColor(red:0.10, green:0.31, blue:0.46, alpha:1.0)
-            return randomizeCorrectCellPositionAppearance()
+            return true
         } else {
-            return nil
+            return false
         }
     }
 }
