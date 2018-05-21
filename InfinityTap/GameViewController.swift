@@ -16,14 +16,18 @@ class GameViewController: UIViewController {
     
     var buttonWidth: CGFloat?
     var buttonHeight: CGFloat?
-    var currentGame: Game = Game(rows: 3, cols: 3, difficulty: 1.0, gameDuration: 10)
+    var currentGame: Game = Game(rows: 3, cols: 3, gameDuration: 10)
+    var currentPlayer: Player = Player(name: Utils.playerNames[Utils.randomizePlayerName()], points: 0)
     var cellViews: [UIView] = [UIView]()
     var gameTimer: Timer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         generateBoard()
+        
         timerLabel.text = "\(currentGame.gameDuration)"
+        pointsLabel.text = "\(currentPlayer.points)"
+        
         gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GameViewController.updateTimer)), userInfo: nil, repeats: true)
     }
 
@@ -78,6 +82,21 @@ class GameViewController: UIViewController {
         }
     }
     
+    private func addTime() {
+        gameTimer.invalidate()
+        
+        if (currentPlayer.points < 8) {
+            currentGame.gameDuration = 10 - currentPlayer.points
+        }
+        
+        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GameViewController.updateTimer)), userInfo: nil, repeats: true)
+    }
+    
+    private func addPoints() {
+        currentPlayer.points += 1
+        pointsLabel.text = "\(currentPlayer.points)"
+    }
+    
     @objc private func updateTimer() {
         if (currentGame.gameDuration == 0) {
             timerLabel.text = "0"
@@ -97,11 +116,10 @@ class GameViewController: UIViewController {
                 for subview in cellViews {
                     if (subview.accessibilityIdentifier == accessibilityIdentifier) {
                         subview.backgroundColor = currentGame.cells[cellHitId!].backgroundColor
-                        
+                        addTime()
+                        addPoints()
                     }
                 }
-                
-                currentGame.addDifficulty()
             } else {
                 
             }

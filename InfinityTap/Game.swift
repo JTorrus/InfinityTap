@@ -12,14 +12,12 @@ import UIKit
 class Game {
     var rows: Int
     var cols: Int
-    var difficulty: Double
     var gameDuration: Int
     var cells: [Cell] = [Cell]()
     
-    init(rows: Int, cols: Int, difficulty: Double, gameDuration: Int) {
+    init(rows: Int, cols: Int, gameDuration: Int) {
         self.rows = rows
         self.cols = cols
-        self.difficulty = difficulty
         self.gameDuration = gameDuration
         self.cells = generateCells()
     }
@@ -29,10 +27,6 @@ class Game {
         let colsToUint32 = UInt32(cols)
         
         return Int(arc4random_uniform(rowsToUInt32 * colsToUint32))
-    }
-    
-    func addDifficulty() {
-        self.difficulty += 1.0
     }
     
     func changeCells() {
