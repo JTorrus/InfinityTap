@@ -41,12 +41,6 @@
                                     <segue destination="3FP-rT-Z0L" kind="show" id="bez-dP-ieP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wG1-g2-DUX">
-                                <rect key="frame" x="172" y="617" width="30" height="30"/>
-                                <state key="normal" title="Exit">
-                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1p-De-Fry">
                                 <rect key="frame" x="53" y="280" width="269" height="30"/>
                                 <color key="backgroundColor" red="0.27696740627288818" green="0.32088249921798706" blue="0.36670404672622681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -68,8 +62,6 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wG1-g2-DUX" firstAttribute="centerX" secondItem="qsp-Lm-J5e" secondAttribute="centerX" id="20T-mT-SCg"/>
-                            <constraint firstAttribute="bottom" secondItem="wG1-g2-DUX" secondAttribute="bottom" constant="20" symbolic="YES" id="5dE-FF-6z3"/>
                             <constraint firstItem="kGJ-ir-Umb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="6cr-kl-GAN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kGJ-ir-Umb" secondAttribute="trailing" constant="16" id="7cY-7D-PNk"/>
                             <constraint firstItem="qsp-Lm-J5e" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="AGm-F4-2y2"/>
@@ -176,34 +168,19 @@
                                     <segue destination="AbK-s6-WPE" kind="presentation" id="arI-Qd-zJr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eN-1b-IJC">
-                                <rect key="frame" x="53" y="362" width="269" height="30"/>
-                                <color key="backgroundColor" red="0.81587189439999996" green="0.30910542610000002" blue="0.31586474180000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Exit">
-                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nOk-Mk-eR4" firstAttribute="leading" secondItem="TFE-Ps-nDP" secondAttribute="leading" constant="53" id="5sM-8K-i8d"/>
                             <constraint firstItem="nLK-1V-4jZ" firstAttribute="leading" secondItem="TFE-Ps-nDP" secondAttribute="leading" constant="43" id="91m-7q-15O"/>
-                            <constraint firstItem="1eN-1b-IJC" firstAttribute="top" secondItem="nOk-Mk-eR4" secondAttribute="bottom" constant="13" id="9PJ-FZ-w81"/>
-                            <constraint firstItem="nOk-Mk-eR4" firstAttribute="leading" secondItem="1eN-1b-IJC" secondAttribute="leading" id="CZz-gI-bla"/>
                             <constraint firstItem="nOk-Mk-eR4" firstAttribute="centerY" secondItem="LBu-cf-qtS" secondAttribute="centerY" id="DKX-UU-QQi"/>
                             <constraint firstItem="R74-dA-Tgu" firstAttribute="top" secondItem="Nny-y7-zKf" secondAttribute="bottom" constant="29" id="DPh-pa-8RM"/>
                             <constraint firstItem="TFE-Ps-nDP" firstAttribute="trailing" secondItem="Nny-y7-zKf" secondAttribute="trailing" constant="16" id="GQ3-3k-nja"/>
                             <constraint firstItem="TFE-Ps-nDP" firstAttribute="trailing" secondItem="nLK-1V-4jZ" secondAttribute="trailing" constant="206" id="Ges-8L-sLe"/>
-                            <constraint firstItem="nOk-Mk-eR4" firstAttribute="trailing" secondItem="1eN-1b-IJC" secondAttribute="trailing" id="Tzi-sd-TxR"/>
+                            <constraint firstItem="TFE-Ps-nDP" firstAttribute="bottom" secondItem="nLK-1V-4jZ" secondAttribute="bottom" constant="319" id="O4u-IO-4xW"/>
                             <constraint firstItem="TFE-Ps-nDP" firstAttribute="trailing" secondItem="R74-dA-Tgu" secondAttribute="trailing" constant="16" id="UUz-8d-wKI"/>
                             <constraint firstItem="nLK-1V-4jZ" firstAttribute="centerY" secondItem="LBu-cf-qtS" secondAttribute="centerY" id="eDW-B7-23m"/>
                             <constraint firstItem="R74-dA-Tgu" firstAttribute="leading" secondItem="TFE-Ps-nDP" secondAttribute="leading" constant="16" id="eVA-5d-CRS"/>
-                            <constraint firstItem="1eN-1b-IJC" firstAttribute="top" secondItem="nLK-1V-4jZ" secondAttribute="bottom" constant="14" id="gkr-9N-go1"/>
                             <constraint firstItem="Nny-y7-zKf" firstAttribute="top" secondItem="TFE-Ps-nDP" secondAttribute="top" constant="17" id="tli-eI-DcU"/>
                             <constraint firstItem="nOk-Mk-eR4" firstAttribute="centerX" secondItem="R74-dA-Tgu" secondAttribute="centerX" id="v0S-GW-eAw"/>
                             <constraint firstItem="Nny-y7-zKf" firstAttribute="leading" secondItem="TFE-Ps-nDP" secondAttribute="leading" constant="16" id="xcC-zQ-lj4"/>
