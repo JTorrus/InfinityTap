@@ -9,31 +9,41 @@
 import UIKit
 
 class ScoreboardViewController: UITableViewController {
+    
+    var highScores: HighScore?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        setUpHighScores()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return (highScores?.playerScores.count)!
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "high_score", for: indexPath)
+        let playerScore = highScores?.playerScores[indexPath.row]
+        
+        cell.textLabel?.text = "\(indexPath.row + 1). \(playerScore!.name)"
+        cell.detailTextLabel?.text = "\(playerScore!.points) pts"
+        
+        return cell
+    }
+    
+    private func setUpHighScores() {
+        if let data = UserDefaults.standard.object(forKey: "IT_HS") as? Data {
+            let decoder = PropertyListDecoder()
+            self.highScores = try? decoder.decode(HighScore.self, from: data)
+        }
     }
 }
