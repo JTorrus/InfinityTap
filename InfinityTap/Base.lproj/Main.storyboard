@@ -149,6 +149,8 @@
                     </view>
                     <connections>
                         <outlet property="gameBoard" destination="xkF-9v-E9u" id="faM-J6-Rnb"/>
+                        <outlet property="pointsLabel" destination="ogL-mh-xmJ" id="o3R-1v-rLp"/>
+                        <outlet property="timerLabel" destination="5c2-cQ-beu" id="FN3-cq-rTU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F7j-z4-3QJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

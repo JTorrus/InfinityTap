@@ -13,12 +13,14 @@ class Game {
     var rows: Int
     var cols: Int
     var difficulty: Double
+    var gameDuration: Int
     var cells: [Cell] = [Cell]()
     
-    init(rows: Int, cols: Int, difficulty: Double) {
+    init(rows: Int, cols: Int, difficulty: Double, gameDuration: Int) {
         self.rows = rows
         self.cols = cols
         self.difficulty = difficulty
+        self.gameDuration = gameDuration
         self.cells = generateCells()
     }
     
@@ -27,10 +29,6 @@ class Game {
         let colsToUint32 = UInt32(cols)
         
         return Int(arc4random_uniform(rowsToUInt32 * colsToUint32))
-    }
-    
-    private func timerActivation() {
-        // TODO
     }
     
     func addDifficulty() {

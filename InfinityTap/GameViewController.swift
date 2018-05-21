@@ -11,20 +11,24 @@ import UIKit
 class GameViewController: UIViewController {
 
     @IBOutlet weak var gameBoard: UIView!
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var pointsLabel: UILabel!
+    
     var buttonWidth: CGFloat?
     var buttonHeight: CGFloat?
-    var currentGame: Game = Game(rows: 3, cols: 3, difficulty: 1.0)
+    var currentGame: Game = Game(rows: 3, cols: 3, difficulty: 1.0, gameDuration: 10)
     var cellViews: [UIView] = [UIView]()
+    var gameTimer: Timer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         generateBoard()
+        timerLabel.text = "\(currentGame.gameDuration)"
+        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GameViewController.updateTimer)), userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     private func generateBoard() {
@@ -74,6 +78,17 @@ class GameViewController: UIViewController {
         }
     }
     
+    @objc private func updateTimer() {
+        if (currentGame.gameDuration == 0) {
+            timerLabel.text = "0"
+            gameTimer.invalidate()
+            // TODO
+        } else {
+            currentGame.gameDuration -= 1
+            timerLabel.text = "\(currentGame.gameDuration)"
+        }
+    }
+    
     @objc func tap(gesture: UITapGestureRecognizer) {
         if let accessibilityIdentifier = gesture.view?.accessibilityIdentifier {
             let cellHitId = Int(accessibilityIdentifier)
@@ -82,6 +97,7 @@ class GameViewController: UIViewController {
                 for subview in cellViews {
                     if (subview.accessibilityIdentifier == accessibilityIdentifier) {
                         subview.backgroundColor = currentGame.cells[cellHitId!].backgroundColor
+                        
                     }
                 }
                 

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InfinityTap/GameViewController.swift"
-            timestampString = "548612122.6413209"
+            timestampString = "548614787.188538"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "tap(gesture:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InfinityTap/GameViewController.swift"
-            timestampString = "548612122.641719"
+            timestampString = "548614787.189877"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "tap(gesture:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InfinityTap/GameViewController.swift"
-            timestampString = "548612122.641947"
+            timestampString = "548614787.1906151"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "tap(gesture:)"
             landmarkType = "7">
          </BreakpointContent>
