@@ -21,19 +21,28 @@ class GameViewController: UIViewController {
     var cellViews: [UIView] = [UIView]()
     var gameTimer: Timer = Timer()
     var gameState = GameState.RUNNING
+    var auxTime: Int?
         
     override func viewDidLoad() {
         super.viewDidLoad()
         generateBoard()
         
+        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GameViewController.updateTimer)), userInfo: nil, repeats: true)
         timerLabel.text = "\(currentGame.gameDuration)"
         pointsLabel.text = "\(currentPlayer.points)"
         
-        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GameViewController.updateTimer)), userInfo: nil, repeats: true)
+        buildGameStatePersistence()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    private func buildGameStatePersistence() {
+        let application = UIApplication.shared
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(didApplicationGoBackground), name: Notification.Name.UIApplicationWillResignActive, object: application)
+        NotificationCenter.default.addObserver(self, selector: #selector(didApplicationGoForeground), name: Notification.Name.UIApplicationDidBecomeActive, object: application)
     }
     
     private func generateBoard() {
@@ -110,6 +119,8 @@ class GameViewController: UIViewController {
             alert = UIAlertController(title: "Game Over", message: "Time is out", preferredStyle: UIAlertControllerStyle.alert)
         }
         
+        
+        
         alert!.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
             if let gameOverViewController = self.storyboard?.instantiateViewController(withIdentifier: "gameOverVC") as? GameOverViewController {
                 gameOverViewController.pointsReached = self.currentPlayer.points
@@ -118,6 +129,22 @@ class GameViewController: UIViewController {
         }))
         
         self.present(alert!, animated: true, completion: nil)
+    }
+    
+    private func writeHighScore() {
+        
+    }
+    
+    @objc private func didApplicationGoBackground() {
+        gameTimer.invalidate()
+        auxTime = currentGame.gameDuration
+    }
+    
+    @objc private func didApplicationGoForeground() {
+        if let timeFromBackground = auxTime {
+            currentGame.gameDuration = timeFromBackground
+            gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GameViewController.updateTimer)), userInfo: nil, repeats: true)
+        }
     }
     
     @objc private func updateTimer() {
