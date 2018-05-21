@@ -22,7 +22,7 @@ class GameViewController: UIViewController {
     var gameTimer: Timer = Timer()
     var gameState = GameState.RUNNING
     var auxTime: Int?
-    var playerHighScore: HighScore = HighScore()
+    var playerHighScore: HighScore?
     var playerNames: [String]?
     
     override func viewDidLoad() {
@@ -149,7 +149,14 @@ class GameViewController: UIViewController {
     }
     
     private func writeHighScore() {
-        self.playerHighScore.addPlayerScore(newPlayerScore: currentPlayer!)
+        if let data = UserDefaults.standard.object(forKey: "IT_HS") as? Data {
+            let decoder = PropertyListDecoder()
+            self.playerHighScore = try! decoder.decode(HighScore.self, from: data)
+        } else {
+            self.playerHighScore = HighScore()
+        }
+        
+        self.playerHighScore!.addPlayerScore(newPlayerScore: currentPlayer!)
         
         let encoder = PropertyListEncoder()
         let data = try? encoder.encode(self.playerHighScore)
