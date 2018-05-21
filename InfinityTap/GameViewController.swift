@@ -20,7 +20,8 @@ class GameViewController: UIViewController {
     var currentPlayer: Player = Player(name: Utils.playerNames[Utils.randomizePlayerName()], points: 0)
     var cellViews: [UIView] = [UIView]()
     var gameTimer: Timer = Timer()
-    
+    var gameState = GameState.RUNNING
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         generateBoard()
@@ -36,6 +37,8 @@ class GameViewController: UIViewController {
     }
     
     private func generateBoard() {
+        cellViews.removeAll()
+        
         let cellHeight = gameBoard.frame.height / CGFloat(currentGame.cols)
         let cellWidth = gameBoard.frame.width / CGFloat(currentGame.rows)
         
@@ -97,18 +100,39 @@ class GameViewController: UIViewController {
         pointsLabel.text = "\(currentPlayer.points)"
     }
     
+    private func gameOver() {
+        var alert: UIAlertController?
+        
+        if (gameState == GameState.NON_CORRECT) {
+            gameTimer.invalidate()
+            alert = UIAlertController(title: "Game Over", message: "You didn't hit the correct cell", preferredStyle: UIAlertControllerStyle.alert)
+        } else if (gameState == GameState.TIME_OUT) {
+            alert = UIAlertController(title: "Game Over", message: "Time is out", preferredStyle: UIAlertControllerStyle.alert)
+        }
+        
+        alert!.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+            if let gameOverViewController = self.storyboard?.instantiateViewController(withIdentifier: "gameOverVC") as? GameOverViewController {
+                gameOverViewController.pointsReached = self.currentPlayer.points
+                self.present(gameOverViewController, animated: true, completion: nil)
+            }
+        }))
+        
+        self.present(alert!, animated: true, completion: nil)
+    }
+    
     @objc private func updateTimer() {
         if (currentGame.gameDuration == 0) {
             timerLabel.text = "0"
             gameTimer.invalidate()
-            // TODO
+            gameState = GameState.TIME_OUT
+            gameOver()
         } else {
             currentGame.gameDuration -= 1
             timerLabel.text = "\(currentGame.gameDuration)"
         }
     }
     
-    @objc func tap(gesture: UITapGestureRecognizer) {
+    @objc private func tap(gesture: UITapGestureRecognizer) {
         if let accessibilityIdentifier = gesture.view?.accessibilityIdentifier {
             let cellHitId = Int(accessibilityIdentifier)
             
@@ -118,10 +142,13 @@ class GameViewController: UIViewController {
                         subview.backgroundColor = currentGame.cells[cellHitId!].backgroundColor
                         addTime()
                         addPoints()
+                        currentGame.changeCells()
+                        generateBoard()
                     }
                 }
             } else {
-                
+                gameState = GameState.NON_CORRECT
+                gameOver()
             }
         }
     }
