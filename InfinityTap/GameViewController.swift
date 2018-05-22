@@ -101,8 +101,12 @@ class GameViewController: UIViewController {
     private func addTime() {
         gameTimer.invalidate()
         
-        if (currentPlayer!.points < 8) {
-            currentGame.gameDuration = 10 - currentPlayer!.points
+        if (currentPlayer!.points > 10) {
+            currentGame.gameDuration = 5
+        } else if (currentPlayer!.points > 20) {
+            currentGame.gameDuration = 2
+        } else {
+            currentGame.gameDuration = 10
         }
         
         gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GameViewController.updateTimer)), userInfo: nil, repeats: true)
