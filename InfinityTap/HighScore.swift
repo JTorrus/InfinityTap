@@ -17,9 +17,9 @@ class HighScore: Codable {
     
     func addPlayerScore(newPlayerScore: Player) {
         playerScores.append(newPlayerScore)
-        playerScores.sort(){ $0>$1 }
+        playerScores.sort(){ $0 > $1 }
         
-        while (playerScores.count > 10) {
+        if (playerScores.count > 10) {
             playerScores.remove(at: 10)
         }
     }
